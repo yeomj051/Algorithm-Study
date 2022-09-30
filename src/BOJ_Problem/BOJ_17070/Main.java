@@ -115,6 +115,12 @@ if(nowInfo.horizon != 0) {
 			if(bforInfo.horizon != 0) {
 				info.horizon += bforInfo.horizon;
 			}
+			if(bforInfo.vertical != 0) {
+				info.vertical += bforInfo.vertical;
+			}
+			if(bforInfo.cross != 0) {
+				info.cross += bforInfo.cross;
+			}
 			
 			break;
 		case 1:
