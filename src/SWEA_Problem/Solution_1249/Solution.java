@@ -63,7 +63,6 @@ public class Solution {
 		while(!queue.isEmpty()){
 			Point nowPoint = queue.poll();
 
-//			System.out.println("x: " + nowPoint.x + " y: " + nowPoint.y);
 			// 상하좌우 탐색
 			for (int i = 0; i < 4; i++) {
 				//delta를 통해 다음 노드 위치 받기
@@ -72,7 +71,6 @@ public class Solution {
 
 				if(nx >= 0 && nx < mapSize && ny >= 0 && ny < mapSize){
 					int goNext = dpArray[nowPoint.x][nowPoint.y] + mapArray[nx][ny];
-//					System.out.println("goNode " + goNext);
 					if (goNext < dpArray[nx][ny]) {
 						dpArray[nx][ny] = goNext;
 						queue.offer(new Point(nx,ny));
@@ -81,15 +79,10 @@ public class Solution {
 
 			}
 		}
-//		for (int i = 0; i < mapSize; i++) {
-//			for (int j = 0; j < mapSize; j++) {
-//				System.out.print(dpArray[i][j] + " ");
-//			}
-//			System.out.println();
-//		}
 
 	return dpArray[mapSize-1][mapSize-1];
 	}
 
-	//bfs 탐색
+	//digkstra 탐색
+	
 }
