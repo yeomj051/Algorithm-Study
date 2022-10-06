@@ -43,7 +43,7 @@ public class Main {
 		Queue<Point> queue = new LinkedList<Point>();
 		int[][] visited = new int[rowSize+1][colSize+1];
 		
-		queue.offer(null)
+//		queue.offer(null)
 		
 	}
 
