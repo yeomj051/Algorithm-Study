@@ -1,4 +1,4 @@
-package BOJ_Problem.BOJ_1074_Z;
+package BOJ_Problem.BOJ_1074;
 
 public class Main {
 

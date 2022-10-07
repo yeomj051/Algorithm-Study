@@ -42,10 +42,7 @@ public class Main {
 	private static void BFS() {
 		Queue<Point> queue = new LinkedList<Point>();
 		int[][] visited = new int[rowSize+1][colSize+1];
-		
-		queue.offer(new Point(0,0));
-		
-		
+
 	}
 
 }
