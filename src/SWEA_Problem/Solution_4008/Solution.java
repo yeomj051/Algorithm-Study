@@ -14,7 +14,7 @@ public class Solution {
 //	3 5 3 7 9	수식에 사용되는 숫자
 	
 	private static int numCount;
-	private static int[] OperatorArr = new int[4]; //[+, !, *, /]
+	private static int[] operatorArr = new int[4]; //[+, !, *, /]
 	private static int[] numberArr;
 	
 	public static void main(String[] args) throws IOException {
@@ -28,17 +28,26 @@ public class Solution {
 			StringTokenizer stringTokenizer = new StringTokenizer(bufferedReader.readLine());
 			
 			for (int i = 0; i < 4; i++) {
-				OperatorArr[i] = Integer.parseInt(stringTokenizer.nextToken());
+				operatorArr[i] = Integer.parseInt(stringTokenizer.nextToken());
 			}
 			numberArr = new int[numCount];
 			for (int i = 0; i < numCount; i++) {
 				numberArr[i] = Integer.parseInt(stringTokenizer.nextToken());
 			}
 			
-			
+			int[] visited = new int[numCount-1];
+				//연산 종류, start, count, visited
+				combi(0, 0, 0, visited);
 			
 			StringBuilder stringBuilder = new StringBuilder("#").append(test_case).append(" ");
 		}
+	}
+
+	private static void combi(int i, int start, int count, int[] visited) {
+		if(count == operatorArr[i]) {
+			
+		}
+		
 	}
 
 }
