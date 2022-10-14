@@ -90,7 +90,10 @@ public class Solution {
 	private static void decideAorB(int count, int[] aorBArray, List<Integer> mediArray) {
 		if(count == aorBArray.length) {
 			for (int i = 0; i < D; i++) {
-				if()
+				if(aorBArray[i] == 2) continue;
+				else if(aorBArray[i] == 0) {
+					
+				}
 			}
 		}
 		
