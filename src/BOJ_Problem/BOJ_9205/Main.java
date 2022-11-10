@@ -58,7 +58,9 @@ public class Main {
 			
 			while (queue.size() != 0) {
 				Point nowPoint = queue.poll();
-				if(canGo(nowPoint, festival)) isPosible = "happy";
+				if(canGo(nowPoint, festival)) {
+					isPosible = "happy";
+				}
 				
 				for (int j = 0; j < storeQuantity; j++) {
 					if(!visited[j] && canGo(nowPoint, storeArray[j])) {
