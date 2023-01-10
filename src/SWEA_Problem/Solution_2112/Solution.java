@@ -26,9 +26,10 @@ public class Solution {
 	private static int K;
 	private static int[][] film;
 
+	private static int minMedi;
 	
 	public static void main(String[] args) throws IOException {
-//		System.setIn(new FileInputStream("res/sample_input(2112).txt"));
+		System.setIn(new FileInputStream("res/sample_input(2112).txt"));
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 		
 		int T = Integer.parseInt(bufferedReader.readLine());
@@ -46,10 +47,11 @@ public class Solution {
 					film[i][j] = Integer.parseInt(stringTokenizer.nextToken());
 				}
 			}
-			
+			minMedi = Integer.MAX_VALUE;
 			getSubset(0, new boolean[D]);
 			
-			StringBuilder stringBuilder = new StringBuilder("#").append(test_case).append(" ");
+			StringBuilder stringBuilder = new StringBuilder("#").append(test_case).append(" ").append(minMedi);
+			System.out.println(stringBuilder);
 		}
 	}
 
@@ -60,16 +62,7 @@ public class Solution {
 			for (int i = 0; i < D; i++) {
 				if(visited[i]) mediArray.add(i);
 			}
-			int[][] filmCopy = new int[D][W];
-//			System.out.println("filmCopy ");
-			for (int i = 0; i < D; i++) {
-				filmCopy[i] = film[i].clone();
-//				for (int j = 0; j < W; j++) {
-//					System.out.print(filmCopy[i][j]);
-//				}
-//				System.out.println();
-			}
-			
+
 			int[] AorBArray = new int[mediArray.size()];
 			Arrays.fill(AorBArray, 2);
 			//A할지 B할지 결정
@@ -82,24 +75,57 @@ public class Solution {
 		getSubset(count+1, visited);
 		visited[count] = true;
 		getSubset(count+1, visited);
-		
-		
+
 	}
 
 
 	private static void decideAorB(int count, int[] aorBArray, List<Integer> mediArray) {
+
 		if(count == aorBArray.length) {
+			int[][] filmCopy = new int[D][W];
 			for (int i = 0; i < D; i++) {
-				if(aorBArray[i] == 2) continue;
-				else if(aorBArray[i] == 0) {
-					
+				filmCopy[i] = film[i].clone();
+			}
+
+			for (int i = 0; i < aorBArray.length; i++) {
+				if(aorBArray[i] == 0) {
+					Arrays.fill(filmCopy[mediArray.get(i)],0);
+				}else{
+					Arrays.fill(filmCopy[mediArray.get(i)],1);
 				}
 			}
+
+			//검증
+			if(test(filmCopy) && mediArray.size() < minMedi){
+				minMedi = mediArray.size();
+			}
+			return;
 		}
+		aorBArray[count] = 1;
+		decideAorB(count+1,aorBArray,mediArray);
+		aorBArray[count] = 0;
+		decideAorB(count+1,aorBArray,mediArray);
 		
 	}
 
+	private static boolean test(int[][] filmCopy) {
+		for (int i = 0; i < W; i++) {
+			int count = 0;
+			int now = 2;
+			for (int j = 0; j < D; j++) {
+				if(now != filmCopy[j][i]){
+					count =1;
+					now = filmCopy[j][i];
+				}else{
+					count++;
+					//카운트가 K보다 크면 break
+					if(count >= K) break;
+				}
+			}
+			if(count < K) return false;
+		}
+		return true;
+	}
 
-	
 
 }
