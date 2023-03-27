@@ -1,4 +1,4 @@
-package 연습문제;
+package Algorithm;
 
 public class Note {
     public static void main(String[] args) {
