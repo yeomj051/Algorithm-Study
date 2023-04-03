@@ -1,4 +1,4 @@
-package BOJ_Problem.BOJ_15651;
+package BOJ_Problem.BOJ_15652;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,11 +8,8 @@ import java.util.StringTokenizer;
 public class Main {
     private static int M;
     private static int N;
-    private static boolean[] visited;
-
     private static int[] result;
     private static StringBuilder stringBuilder = new StringBuilder();
-
 
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -21,15 +18,13 @@ public class Main {
         N = Integer.parseInt(stringTokenizer.nextToken());
         M = Integer.parseInt(stringTokenizer.nextToken());
 
-        visited = new boolean[N];
         result = new int[M];
+        logic(0, 1);
 
-        logic(0);
-        System.out.println(stringBuilder);
-
+        System.out.print(stringBuilder);
     }
 
-    private static void logic(int count) {
+    private static void logic(int count, int start) {
         if(count == M){
             for (int i = 0; i < M; i++) {
                 stringBuilder.append(result[i]).append(" ");
@@ -37,11 +32,9 @@ public class Main {
             stringBuilder.append("\n");
             return;
         }
-
-        for (int i = 1; i <= N; i++) {
+        for (int i = start; i <= N; i++) {
             result[count] = i;
-            logic(count+1);
+            logic(count+1, i);
         }
     }
 }
-

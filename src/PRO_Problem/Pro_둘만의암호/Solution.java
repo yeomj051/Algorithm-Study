@@ -1,5 +1,7 @@
 package PRO_Problem.Pro_둘만의암호;
 
+import java.util.Arrays;
+
 class Solution {
     public String solution(String s, String skip, int index) {
         String answer = "";
@@ -7,7 +9,7 @@ class Solution {
         char[] skipArr = skip.toCharArray();
         int[] arr = {4,3,5,2,6};
 
-//        Arrays.sort(arr,(a,b) -> a - b);
+        Arrays.sort(skipArr);
 
 
         for(int i=0; i<skipArr.length; i++){

@@ -15,7 +15,6 @@ for j in range(test_case):
     Y_total, K_total = 0,0
     for i in range(9):
         Y, K = map(int, input().split())
-        print(Y,K)
         Y_total += Y
         K_total += K
 
