@@ -12,7 +12,6 @@ class Solution
     private final static int CMD_UPDATE_SOLDIER		= 4;
     private final static int CMD_UPDATE_TEAM		= 5;
     private final static int CMD_BEST_SOLDIER		= 6;
-
     private final static 병사_관리 USERSOLUTION = new 병사_관리();
 
     private static boolean run(BufferedReader br) throws Exception
@@ -83,7 +82,7 @@ class Solution
     {
         int TC, MARK;
 
-        //System.setIn(new java.io.FileInputStream("res/sample_input.txt"));
+        System.setIn(new java.io.FileInputStream("res/sample_25_input.txt"));
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");

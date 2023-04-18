@@ -1,7 +1,6 @@
 package SWEA_Problem.Solution_병사관리;// author: 류호석(rhs0266)
 
-class 병사_관리
-{
+class 병사_관리 {
     public class Node {
         int id;
         int v;
@@ -44,7 +43,7 @@ class 병사_관리
 
     public void init() {
         cnt = 0;
-        for (int i=0;i<200055;i++){
+        for (int i = 0; i < 200055; i++) {
             if (node[i] == null) node[i] = new Node();
         }
         for (int i = 1; i <= 5; i++) {
